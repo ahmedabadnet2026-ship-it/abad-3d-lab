@@ -74,6 +74,81 @@ button{font-family:inherit;cursor:pointer}
 .loading.done{opacity:0;pointer-events:none}
 .loading div{font-weight:700;color:#a9bccd}
 
+/* clickable rows in rack card */
+.card li.dv{cursor:pointer;transition:.2s}
+.card li.dv:hover{background:rgba(245,189,45,.14);border-color:rgba(245,189,45,.5)}
+.card li.dv::after{content:"‹";color:var(--gold);font-size:18px;margin-inline-start:6px}
+.card .pcs{margin-top:8px;font-size:12.5px;color:#9fb6c8}
+/* device side panel */
+.dp{position:fixed;z-index:12;left:16px;top:72px;bottom:80px;width:560px;max-width:calc(100vw - 32px);display:flex;flex-direction:column;
+  background:rgba(7,16,27,.9);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.55);
+  transform:translateX(-24px);opacity:0;pointer-events:none;transition:.35s cubic-bezier(.2,.8,.2,1)}
+.dp.show{transform:none;opacity:1;pointer-events:auto}
+.dp-head{display:flex;align-items:flex-start;gap:10px;padding:14px 16px 8px}
+.dp-head .kicker{font-size:12px;font-weight:800;color:var(--gold)}
+.dp-head h2{font-size:19px;font-weight:900;line-height:1.35}
+.dp-head .x{margin-inline-start:auto;background:none;border:0;color:#9fb3c6;font-size:22px;line-height:1}
+.dp-tabs{display:flex;gap:6px;padding:0 16px 10px;border-bottom:1px solid var(--line)}
+.dp-tabs button{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#dce8f2;font-weight:700;font-size:13px;padding:6px 14px;border-radius:10px}
+.dp-tabs button.on{background:var(--gold);color:#2a1d00;border-color:var(--gold)}
+.dp-body{flex:1;min-height:0;overflow:auto;padding:12px 16px 14px}
+.dp-body h3{font-size:14px;font-weight:800;color:#fff;margin:12px 0 6px}
+.dp-body p{font-size:13.5px;color:#c3d3e1;line-height:1.75}
+.ports{width:100%;border-collapse:collapse;font-size:12.5px}
+.ports th{color:#8fa6ba;font-weight:700;text-align:right;padding:4px 6px;border-bottom:1px solid var(--line)}
+.ports td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ports td.en{display:table-cell;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.st{font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.st.up{background:rgba(62,224,143,.16);color:#5cf0a4}.st.down{background:rgba(255,91,91,.15);color:#ff8a8a}.st.admin{background:rgba(255,255,255,.08);color:#aab8c4}
+.topo{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;margin-top:4px}
+.topo .nd{cursor:pointer}
+.topo text{font-family:Arial,sans-serif}
+.simnote{margin-top:10px;font-size:12px;color:#ffd76e;background:rgba(245,189,45,.1);border:1px dashed rgba(245,189,45,.45);border-radius:8px;padding:5px 9px}
+.simbadge{font-size:12px;font-weight:800;color:#2a1d00;background:var(--gold);border-radius:8px;padding:4px 10px;margin-bottom:8px;display:inline-block}
+.term{background:#030608;border:1px solid #1d2a33;border-radius:12px;padding:10px 12px;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:11.5px;
+  color:#c9f5cf;height:calc(100% - 92px);min-height:220px;overflow:auto;text-align:left;cursor:text;direction:ltr;unicode-bidi:isolate}
+.term pre{white-space:pre;margin:0;font:inherit;width:max-content;min-width:100%}
+.tline{display:flex;gap:0;align-items:center;position:sticky;left:0;max-width:100%}
+.tline span{white-space:pre;color:#7fe0ff}
+.tline input{flex:1;min-width:40px;background:transparent;border:0;outline:0;color:#fff;font:inherit;caret-color:var(--gold);padding:0 0 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;direction:ltr}
+.chips button{border:1px solid var(--line);background:rgba(255,255,255,.06);color:#dce8f2;font-family:ui-monospace,Consolas,monospace;font-size:12px;padding:4px 9px;border-radius:8px}
+.chips button:hover{background:rgba(245,189,45,.18)}
+.chips .rst{margin-left:auto;font-family:inherit;color:#ff9f9f}
+body.dp-open .card,body.dp-open .hint{opacity:0;pointer-events:none}
+/* tour bar */
+.tourbar{position:fixed;z-index:11;top:66px;left:50%;transform:translate(-50%,-10px);opacity:0;pointer-events:none;transition:.3s;
+  background:rgba(7,16,27,.9);border:1px solid rgba(245,189,45,.5);border-radius:14px;padding:8px 10px 10px;min-width:min(560px,92vw);backdrop-filter:blur(12px)}
+.tourbar.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.tourbar .row{display:flex;align-items:center;gap:10px}
+.tourbar .cap{flex:1;font-weight:800;font-size:14px}
+.tourbar .n{font-size:12px;color:var(--gold);font-weight:800;direction:ltr}
+.tourbar button{border:0;background:rgba(255,255,255,.08);color:#fff;border-radius:8px;width:30px;height:28px;font-size:14px}
+.tourbar .bar{height:3px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:8px;overflow:hidden}
+.tourbar .bar i{display:block;height:100%;width:0;background:var(--gold)}
+/* overview modal */
+.modal{position:fixed;inset:0;z-index:30;background:rgba(2,6,10,.6);backdrop-filter:blur(4px);display:grid;place-items:center;opacity:0;pointer-events:none;transition:.3s}
+.modal.show{opacity:1;pointer-events:auto}
+.mbox{width:min(640px,94vw);max-height:88vh;overflow:auto;background:linear-gradient(160deg,#0b2236,#071320);border:1px solid var(--line);border-radius:22px;padding:22px 24px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.mbox h2{font-size:22px;font-weight:900}
+.mbox>p{color:#b8cbdb;font-size:14px;margin:4px 0 14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stats div{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stats b{display:block;font-size:30px;font-weight:900;color:var(--gold);line-height:1.2}
+.stats span{font-size:12.5px;color:#c3d3e1;font-weight:700}
+.mtab{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
+.mtab th{color:#8fa6ba;text-align:right;padding:6px;border-bottom:1px solid var(--line)}
+.mtab td{padding:6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.mtab tr.rk{cursor:pointer}.mtab tr.rk:hover td{background:rgba(245,189,45,.08)}
+.mbox .x{position:absolute;top:12px;left:14px;background:none;border:0;color:#9fb3c6;font-size:24px}
+@media (max-width:760px){
+  .dp{left:0;right:0;bottom:0;top:auto;height:62vh;width:auto;max-width:none;border-radius:18px 18px 0 0;transform:translateY(30px)}
+  body.dp-open .dock{opacity:0;pointer-events:none}
+  .term{height:calc(100% - 100px);font-size:11px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .tourbar{top:auto;bottom:70px}
+}
+
 @media (max-width:760px){
   .top{flex-wrap:wrap;gap:8px;padding:8px 10px}
   .brand img{height:24px}
@@ -125,8 +200,28 @@ button{font-family:inherit;cursor:pointer}
   <button data-go="tools">طاولة الأدوات</button>
   <button data-go="wsLeft">محطات العمل</button>
   <button data-go="wsRight">الصف الأيمن</button>
+  <button id="aboutBtn">عن المعمل</button>
   <button class="tour" id="tourBtn">▶ جولة</button>
 </div>
+
+<aside class="dp" id="dp" aria-live="polite">
+  <div class="dp-head"><div><div class="kicker" id="dpKick"></div><h2 id="dpTitle"></h2></div><button class="x" id="dpX" aria-label="إغلاق">×</button></div>
+  <div class="dp-tabs"><button data-tab="info" class="on">معلومات الجهاز</button><button data-tab="term">طرفية IOS (محاكاة)</button></div>
+  <div class="dp-body" id="dpInfo"></div>
+  <div class="dp-body" id="dpTerm" hidden>
+    <div class="simbadge">⚠ محاكاة تعليمية لأوامر Cisco IOS — ليست جهازًا حقيقيًا</div>
+    <div class="term" id="term"><pre id="termOut"></pre><div class="tline"><span id="termPrompt"></span><input id="termIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="سطر الأوامر"></div></div>
+    <div class="chips" id="chips"></div>
+  </div>
+</aside>
+<div class="tourbar" id="tourBar"><div class="row"><span class="n" id="tourN"></span><span class="cap" id="tourCap"></span>
+  <button id="tourPrev" aria-label="السابق">›</button><button id="tourNext" aria-label="التالي">‹</button><button id="tourStop" aria-label="إيقاف">■</button></div><div class="bar"><i id="tourProg"></i></div></div>
+<div class="modal" id="modal"><div class="mbox"><button class="x" id="modalX" aria-label="إغلاق">×</button>
+  <h2>عن معمل الشبكات</h2><p>معهد شبكة آباد للتدريب — الرياض. خزائن جدارية مفتوحة فوق محطات المتدربين، في كل خزانة راوتران وسويتش من Cisco.</p>
+  <div class="stats"><div><b>7</b><span>خزائن جدارية</span></div><div><b>14</b><span>راوتر Cisco</span></div><div><b>7</b><span>سويتش Cisco</span></div><div><b id="mWs">–</b><span>محطة عمل في المجسّم</span></div></div>
+  <table class="mtab"><thead><tr><th>الخزانة</th><th>الأجهزة</th><th>المحطات المرتبطة</th></tr></thead><tbody id="mRows"></tbody></table>
+  <div class="simnote">عدد المحطات وتوزيعها على الخزائن تقديري حسب المجسّم. الطرفية داخل لوحة الجهاز محاكاة تعليمية.</div>
+</div></div>
 
 <div id="markers"></div>
 <div class="loading" id="loading"><div>جارٍ تجهيز المعمل…</div></div>
@@ -291,7 +386,11 @@ const M = {
   white: new THREE.MeshStandardMaterial({ color: 0xf2f2ef, roughness: 0.45 }),
   whiteM: new THREE.MeshStandardMaterial({ color: 0xe9ecee, roughness: 0.3, metalness: 0.2 }),
   black: new THREE.MeshStandardMaterial({ color: 0x141516, roughness: 0.6, metalness: 0.2 }),
-  blackMesh: new THREE.MeshStandardMaterial({ color: 0x1a1b1d, roughness: 0.85, transparent: true, opacity: 0.88 }),
+  blackMesh: new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.85, transparent: true, side: THREE.DoubleSide, depthWrite: false, map: (() => { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d');
+    g.fillStyle = 'rgba(22,23,25,.42)'; g.fillRect(0, 0, 128, 128); g.strokeStyle = 'rgba(14,15,16,.95)'; g.lineWidth = 1.6;
+    for (let k = 0; k <= 128; k += 5) { g.beginPath(); g.moveTo(k, 0); g.lineTo(k, 128); g.stroke(); g.beginPath(); g.moveTo(0, k); g.lineTo(128, k); g.stroke(); }
+    g.strokeStyle = '#121314'; g.lineWidth = 10; g.strokeRect(0, 0, 128, 128);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })() }),
   seat: new THREE.MeshStandardMaterial({ color: 0x2b2e31, roughness: 0.9 }),
   red: new THREE.MeshStandardMaterial({ color: 0x9d1d22, roughness: 0.8 }),
   gray: new THREE.MeshStandardMaterial({ color: 0x8c9196, roughness: 0.4, metalness: 0.5 }),
@@ -387,9 +486,9 @@ const lips = scene.children.slice(-3); lips.forEach(g => g.children[1].position.
 
 // ---------------- workstations (instanced all-in-one PCs + keyboards) ----------------
 const ws = []; // {x,z,ry}
-for (let z = 4.2; z > -5.0; z -= 1.15) ws.push({ x: X0 + 0.22, z, ry: Math.PI / 2 });
-for (let x = -2.3; x < 2.6; x += 1.15) ws.push({ x, z: Z0 + 0.22, ry: 0 });
-for (let z = -4.2; z < 1.0; z += 1.15) ws.push({ x: X1 - 0.22, z, ry: -Math.PI / 2 });
+for (let z = 4.2; z > -5.0; z -= 1.15) ws.push({ x: X0 + 0.22, z, ry: Math.PI / 2, wall: 'L' });
+for (let x = -2.3; x < 2.6; x += 1.15) ws.push({ x, z: Z0 + 0.22, ry: 0, wall: 'B' });
+for (let z = -4.2; z < 1.0; z += 1.15) ws.push({ x: X1 - 0.22, z, ry: -Math.PI / 2, wall: 'R' });
 const wsM = ws.map(w => mat4(w.x, 0.767, w.z, w.ry));
 instanced([
   [mg([[new THREE.BoxGeometry(0.62, 0.4, 0.03), 0, 0.42, 0]]), M.bezel],
@@ -467,7 +566,7 @@ ac.position.set(0.95, 2.3, Z0 + 0.12); scene.add(shadow(ac));
 
 // ---------------- wall-mounted network cabinets (Rack 1 … 7) ----------------
 const RACKS = [
-  { wall: 'L', z: 4.1 }, { wall: 'L', z: 2.05 }, { wall: 'L', z: 0.0 }, { wall: 'L', z: -2.05 }, { wall: 'L', z: -4.1 },
+  { wall: 'L', z: 3.55 }, { wall: 'L', z: 1.65 }, { wall: 'L', z: -0.25 }, { wall: 'L', z: -2.15 }, { wall: 'L', z: -4.05 },
   { wall: 'B', x: -0.55 }, { wall: 'B', x: 2.45 },
 ];
 const CW = 0.62, CH = 0.52, CD = 0.45, CY = 2.12;
@@ -491,7 +590,10 @@ RACKS.forEach((rk, i) => {
   // rails
   box(0.02, CH - 0.03, 0.02, M.gray, -0.255, 0, CD / 2 - 0.05, g); box(0.02, CH - 0.03, 0.02, M.gray, 0.255, 0, CD / 2 - 0.05, g);
   // devices: Router 1, Router 2 (2U look) and Switch (1U)
-  const dev = (h, mats, y, name) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.53, h, 0.34), mats); m.position.set(0, y, 0.0); m.userData.dev = name; g.add(m); return m; };
+  const devs = {};
+  const dev = (h, mats, y, name) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.53, h, 0.34), mats); m.position.set(0, y, 0.0); m.userData.dev = name; m.userData.pick = { type: 'dev', i, dev: name };
+    const e = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(0.545, h + 0.012, 0.35)), new THREE.LineBasicMaterial({ color: 0x7fe0ff })); e.visible = false; m.add(e); m.userData.edge = e;
+    g.add(m); devs[name] = m; return m; };
   dev(0.088, matR1, 0.16, 'R1'); dev(0.088, matR2, 0.05, 'R2'); dev(0.0445, matSW, -0.06, 'SW1');
   // highlight edges
   const edges = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(CW + 0.03, CH + 0.03, CD + 0.03)), new THREE.LineBasicMaterial({ color: 0xF5BD2D, transparent: true, opacity: 0 }));
@@ -505,7 +607,7 @@ RACKS.forEach((rk, i) => {
   else { g.position.set(rk.x, CY, Z0 + CD / 2 + 0.01); }
   scene.add(shadow(g, true, true));
   g.updateMatrixWorld(true);
-  g.userData = { rack: i, frameMat, edges, lab, labTexOn: makeLabel(`Rack ${i + 1}`, '#F5BD2D', '#2a1d00'), labTexOff: lab.material.map };
+  g.userData = { rack: i, devs, frameMat, edges, lab, labTexOn: makeLabel(`Rack ${i + 1}`, '#F5BD2D', '#2a1d00'), labTexOff: lab.material.map };
   g.traverse(o => o.userData.pick = o.userData.pick ?? { type: 'rack', i });
   cabinetObjs.push(g);
   // hanging patch cables (curves in cabinet space -> world)
@@ -547,7 +649,7 @@ tableGroup.traverse(o => o.userData.pick = { type: 'spot', id: 'tools' });
 const rackCard = i => ({
   kicker: 'خزانة شبكة جدارية', title: `Rack ${i + 1}`,
   desc: 'خزانة جدارية مفتوحة الواجهة فوق محطات المتدربين، تضم أجهزة Cisco للتطبيق العملي على التوجيه والتبديل.',
-  list: [['R1', 'Router 1', 'راوتر Cisco'], ['R2', 'Router 2', 'راوتر Cisco'], ['SW1', 'Switch', 'سويتش Cisco']], note: null,
+  list: [['R1', 'Router 1', 'راوتر Cisco'], ['R2', 'Router 2', 'راوتر Cisco'], ['SW1', 'Switch', 'سويتش Cisco']], note: null, devRack: i,
 });
 const CARDS = {
   server: { kicker: 'خزانة الخوادم', title: 'Server Rack', desc: 'خزانة طويلة بباب زجاجي وإضاءة LED زرقاء في الجهة اليمنى من المعمل.',
@@ -564,7 +666,7 @@ const CARDS = {
 
 // ---------------- views ----------------
 const V = {
-  overview: { p: [2.15, 1.6, 5.3], t: [-0.9, 1.15, -4.0] },
+  overview: { p: [2.3, 1.6, 5.3], t: [-1.25, 1.15, -3.0] },
   tools: { p: [1.7, 1.85, 2.6], t: [-0.1, 0.7, 0.2] },
   wsLeft: { p: [0.6, 1.55, 3.4], t: [-3.2, 1.05, -0.8] },
   wsRight: { p: [-1.2, 1.6, 2.2], t: [3.2, 0.95, -1.6] },
@@ -580,7 +682,7 @@ function rackView(i) {
 // ---------------- controls + camera fly ----------------
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.dampingFactor = 0.08; controls.enablePan = false;
-controls.rotateSpeed = 0.6; controls.zoomSpeed = 0.8; controls.minDistance = 0.6; controls.maxDistance = 11;
+controls.rotateSpeed = 0.6; controls.zoomSpeed = 0.8; controls.minDistance = 0.3; controls.maxDistance = 11;
 camera.position.set(...V.overview.p); controls.target.set(...V.overview.t); controls.update();
 let fly = null;
 function flyTo(v, dur = 1600) {
@@ -595,10 +697,13 @@ RACKS.forEach((_, i) => { const b = document.createElement('button'); b.textCont
 const srvTab = document.createElement('button'); srvTab.className = 'srv'; srvTab.textContent = 'Server Rack'; srvTab.onclick = () => { stopTour(); selectSpot('server'); }; rackBar.appendChild(srvTab);
 const card = document.getElementById('card');
 document.getElementById('cardX').onclick = () => card.classList.remove('show');
+document.getElementById('cList').addEventListener('click', e => { const li = e.target.closest('li.dv'); if (li && card.dataset.rack !== '') { stopTour(); openDevice(+card.dataset.rack, li.dataset.dev); } });
 function showCard(c) {
   if (!c) { card.classList.remove('show'); return; }
   document.getElementById('cKick').textContent = c.kicker; document.getElementById('cTitle').textContent = c.title; document.getElementById('cDesc').textContent = c.desc;
-  document.getElementById('cList').innerHTML = c.list.map(([t, en, ar]) => `<li><span class="tg ${c.blue ? 'b' : ''}">${t}</span><span class="en">${en}</span><small>${ar}</small></li>`).join('');
+  document.getElementById('cList').innerHTML = c.list.map(([t, en, ar]) => `<li${c.devRack !== undefined ? ` class="dv" data-dev="${t}" title="افتح لوحة الجهاز"` : ''}><span class="tg ${c.blue ? 'b' : ''}">${t}</span><span class="en">${en}</span><small>${ar}</small></li>`).join('')
+    + (c.devRack !== undefined ? `<div class="pcs">مرتبطة بـ ${assign[c.devRack].length} محطات عمل (الخطوط المضيئة) — اضغط على أي جهاز لفتح لوحته والطرفية.</div>` : '');
+  card.dataset.rack = c.devRack ?? '';
   const n = document.getElementById('cNote'); n.hidden = !c.note; n.textContent = c.note || '';
   card.classList.add('show');
 }
@@ -607,15 +712,18 @@ function clearHighlight() {
   srvEdges.material.opacity = 0;
   tabs.forEach(b => b.classList.remove('on')); srvTab.classList.remove('on');
   document.querySelectorAll('.dock button[data-go]').forEach(b => b.classList.remove('on'));
+  clearLinks();
 }
 let selected = null;
-function selectRack(i, fly_ = true) {
-  clearHighlight(); selected = { type: 'rack', i };
+function selectRack(i, fly_ = true, keepPanel = false) {
+  if (!keepPanel && curDev) closeDevice();
+  clearHighlight(); selected = { type: 'rack', i }; showLinks(i);
   const g = cabinetObjs[i]; g.userData.edges.material.opacity = 1; g.userData.frameMat.emissiveIntensity = 0; g.userData.lab.material.map = g.userData.labTexOn;
   tabs[i].classList.add('on'); tabs[i].scrollIntoView({ inline: 'nearest', block: 'nearest' });
   showCard(rackCard(i)); if (fly_) flyTo(rackView(i));
 }
 function selectSpot(id) {
+  if (curDev) closeDevice();
   clearHighlight(); selected = { type: 'spot', id };
   if (id === 'server') { srvEdges.material.opacity = 1; srvTab.classList.add('on'); }
   document.querySelector(`.dock button[data-go="${id}"]`)?.classList.add('on');
@@ -652,26 +760,481 @@ canvas.addEventListener('pointerup', e => {
   ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
   const hit = ray.intersectObjects(pickables, true).find(h => h.object.isMesh && h.object.userData.pick);
   if (!hit) return; const p = hit.object.userData.pick;
-  if (p.type === 'rack') selectRack(p.i); else if (p.type === 'server') selectSpot('server'); else selectSpot(p.id);
+  if (p.type === 'dev') openDevice(p.i, p.dev); else if (p.type === 'rack') selectRack(p.i); else if (p.type === 'server') selectSpot('server'); else selectSpot(p.id);
 });
 canvas.addEventListener('pointermove', e => {
   ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
   canvas.style.cursor = ray.intersectObjects(pickables, true).some(h => h.object.isMesh) ? 'pointer' : 'grab';
 });
 
-// guided tour
-const tourBtn = document.getElementById('tourBtn');
-const TOUR = [() => selectSpot('overview'), ...RACKS.map((_, i) => () => selectRack(i)), () => selectSpot('tools'), () => selectSpot('server'), () => selectSpot('wsLeft'), () => selectSpot('wsRight'), () => selectSpot('overview')];
-let tourTimer = null, tourIdx = 0;
-function stepTour() { TOUR[tourIdx](); tourIdx++; if (tourIdx >= TOUR.length) { stopTour(); return; } tourTimer = setTimeout(stepTour, 4200); }
-function stopTour() { clearTimeout(tourTimer); tourTimer = null; tourBtn.classList.remove('on'); tourBtn.textContent = '▶ جولة'; }
-tourBtn.onclick = () => { if (tourTimer) return stopTour(); tourIdx = 0; tourBtn.classList.add('on'); tourBtn.textContent = '■ إيقاف'; stepTour(); };
+// ================= workstation ↔ rack assignment (balanced, nearest first) =================
+const V3 = THREE.Vector3;
+const assign = RACKS.map(() => []);
+{
+  const pairs = [];
+  ws.forEach((w, wi) => cabinetObjs.forEach((g, ri) => pairs.push({ wi, ri, d: Math.hypot(w.x - g.position.x, w.z - g.position.z) })));
+  pairs.sort((a, b) => a.d - b.d);
+  const owner = ws.map(() => -1), base = Math.floor(ws.length / RACKS.length);
+  for (const cap of [base, base + 1, 99]) for (const p of pairs) if (owner[p.wi] < 0 && assign[p.ri].length < cap) { owner[p.wi] = p.ri; assign[p.ri].push(p.wi); }
+  assign.forEach((a, ri) => a.sort((x, y) => Math.hypot(ws[x].x - cabinetObjs[ri].position.x, ws[x].z - cabinetObjs[ri].position.z) - Math.hypot(ws[y].x - cabinetObjs[ri].position.x, ws[y].z - cabinetObjs[ri].position.z)));
+}
+
+// ================= animated cable / packet lines rack → PCs =================
+const glowTex = canvasTex(64, 64, (g) => { const r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.3, 'rgba(255,255,255,.6)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 64, 64); });
+const linkGroup = new THREE.Group(); scene.add(linkGroup);
+let linkPackets = [];
+const INS = 0.16;
+const wallPt = (wall, a, y) => wall === 'L' ? new V3(X0 + INS, y, a) : wall === 'B' ? new V3(a, y, Z0 + INS) : new V3(X1 - INS, y, a);
+const CORNER = { LB: new V3(X0 + INS, 0, Z0 + INS), BR: new V3(X1 - INS, 0, Z0 + INS) };
+function routeFor(ri, wi) {
+  const rk = RACKS[ri], g = cabinetObjs[ri], w = ws[wi];
+  const ra = rk.wall === 'L' ? g.position.z : g.position.x, wa = w.wall === 'B' ? w.x : w.z;
+  const pc = new V3(w.x, 1.19, w.z), pts = [];
+  if (rk.wall === w.wall) {
+    pts.push(wallPt(rk.wall, ra, CY - CH / 2), wallPt(rk.wall, ra, 0.98), wallPt(w.wall, wa, 0.98), pc);
+  } else {
+    const y = 2.55;
+    pts.push(wallPt(rk.wall, ra, CY + CH / 2 - 0.04), wallPt(rk.wall, ra, y));
+    ({ LB: ['LB'], BL: ['LB'], BR: ['BR'], RB: ['BR'], LR: ['LB', 'BR'], RL: ['BR', 'LB'] })[rk.wall + w.wall].forEach(k => pts.push(CORNER[k].clone().setY(y)));
+    pts.push(wallPt(w.wall, wa, y), wallPt(w.wall, wa, 1.19), pc);
+  }
+  const path = new THREE.CurvePath();
+  for (let k = 0; k < pts.length - 1; k++) path.add(new THREE.LineCurve3(pts[k], pts[k + 1]));
+  return path;
+}
+const linkCore = new THREE.MeshBasicMaterial({ color: 0xffd34d });
+const linkHalo = new THREE.MeshBasicMaterial({ color: 0xF5BD2D, transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false });
+const pktGeo = new THREE.SphereGeometry(0.018, 10, 8);
+function clearLinks() {
+  linkGroup.children.slice().forEach(o => { linkGroup.remove(o); if (o.geometry && o.geometry !== pktGeo) o.geometry.dispose(); if (o.material && o.material.map && o.userData.own) o.material.map.dispose(); });
+  linkPackets = [];
+}
+function showLinks(ri) {
+  clearLinks();
+  assign[ri].forEach((wi, k) => {
+    const path = routeFor(ri, wi), len = path.getLength(), seg = Math.max(40, Math.round(len * 30));
+    linkGroup.add(new THREE.Mesh(new THREE.TubeGeometry(path, seg, 0.008, 6, false), linkCore));
+    linkGroup.add(new THREE.Mesh(new THREE.TubeGeometry(path, seg, 0.024, 8, false), linkHalo));
+    for (let p = 0; p < 3; p++) {
+      const col = p === 1 ? 0x7fe0ff : 0xffffff;
+      const m = new THREE.Mesh(pktGeo, new THREE.MeshBasicMaterial({ color: col }));
+      const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: col, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+      s.scale.setScalar(0.12); m.add(s); linkGroup.add(m);
+      linkPackets.push({ m, path, t: p / 3 + Math.random() * 0.1, v: 0.55 / len, dir: p === 1 ? -1 : 1 });
+    }
+    // PC label above the monitor
+    const lab = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeLabel(`PC${k + 1}`, 'rgba(245,189,45,.95)', '#2a1d00'), depthWrite: false, depthTest: false }));
+    lab.userData.own = true; lab.scale.set(0.26, 0.075, 1); lab.position.set(ws[wi].x, 1.52, ws[wi].z); linkGroup.add(lab);
+  });
+}
+function updateLinks(dt) {
+  linkPackets.forEach(p => { p.t = (p.t + p.dir * p.v * dt + 1) % 1; p.path.getPointAt(p.t, p.m.position); });
+  linkHalo.opacity = 0.22 + Math.sin(clock.elapsedTime * 3) * 0.08;
+}
+
+// ================= Cisco IOS simulation =================
+const SIM_KEY = 'abad-ios-sim-v1';
+let simStore = {}; try { simStore = JSON.parse(localStorage.getItem(SIM_KEY) || '{}'); } catch (e) { simStore = {}; }
+const saveSim = () => { try { localStorage.setItem(SIM_KEY, JSON.stringify(simStore)); } catch (e) {} };
+const RTS = {};
+const SW_IFS = [...Array(24)].map((_, k) => `FastEthernet0/${k + 1}`).concat(['GigabitEthernet0/1', 'GigabitEthernet0/2', 'Vlan1']);
+const R_IFS = ['GigabitEthernet0/0', 'GigabitEthernet0/1', 'GigabitEthernet0/2'];
+function getDev(i, dev) {
+  const key = `${i}-${dev}`;
+  if (!simStore[key]) {
+    const type = dev === 'SW1' ? 'sw' : 'r', ifs = {};
+    (type === 'sw' ? SW_IFS : R_IFS).forEach(n => ifs[n] = { ip: null, mask: null, shut: type === 'r' || n.startsWith('Vlan'), desc: '', vlan: 1, mode: null });
+    simStore[key] = { hostname: dev, type, ifs, vlans: type === 'sw' ? { 1: 'default' } : null };
+  }
+  return simStore[key];
+}
+const RT = (i, dev) => (RTS[`${i}-${dev}`] ||= { mode: 'user', cur: null, curVlan: null, log: null, hist: [], hi: 0, boot: Date.now() });
+const sortIfs = (o) => Object.keys(o).sort((a, b) => { const r = s => (s.startsWith('Fast') ? 1 : s.startsWith('Gig') ? 2 : 3); return r(a) - r(b) || a.localeCompare(b, 'en', { numeric: true }); });
+const shortIf = n => n.replace('FastEthernet', 'Fa').replace('GigabitEthernet', 'Gi');
+function peerOf(i, dev, ifn) {
+  const L = { 'R1:GigabitEthernet0/0': ['R2', 'GigabitEthernet0/0'], 'R2:GigabitEthernet0/0': ['R1', 'GigabitEthernet0/0'],
+    'R1:GigabitEthernet0/1': ['SW1', 'GigabitEthernet0/1'], 'SW1:GigabitEthernet0/1': ['R1', 'GigabitEthernet0/1'],
+    'R2:GigabitEthernet0/1': ['SW1', 'GigabitEthernet0/2'], 'SW1:GigabitEthernet0/2': ['R2', 'GigabitEthernet0/1'] }[dev + ':' + ifn];
+  if (L) return { dev: L[0], ifn: L[1] };
+  const m = /^FastEthernet0\/(\d+)$/.exec(ifn);
+  if (dev === 'SW1' && m && +m[1] <= assign[i].length) return { pc: +m[1] };
+  return null;
+}
+function ifStatus(i, dev, ifn) {
+  const s = getDev(i, dev), f = s.ifs[ifn];
+  if (!f) return 'down';
+  if (f.shut) return 'admin';
+  if (ifn.startsWith('Vlan')) { const v = +ifn.slice(4); if (!s.vlans[v]) return 'down'; return Object.keys(s.ifs).some(n => !n.startsWith('Vlan') && s.ifs[n].vlan === v && s.ifs[n].mode !== 'trunk' && ifStatus(i, dev, n) === 'up') ? 'up' : 'down'; }
+  const p = peerOf(i, dev, ifn);
+  if (!p) return 'down';
+  if (p.pc) return 'up';
+  return getDev(i, p.dev).ifs[p.ifn].shut ? 'down' : 'up';
+}
+function segOf(i, dev, ifn) {
+  if (ifStatus(i, dev, ifn) !== 'up') return null;
+  if (ifn === 'GigabitEthernet0/0') return 'A';
+  if (dev !== 'SW1' && ifn === 'GigabitEthernet0/1') { const sp = dev === 'R1' ? 'GigabitEthernet0/1' : 'GigabitEthernet0/2'; const f = getDev(i, 'SW1').ifs[sp]; return ifStatus(i, 'SW1', sp) === 'up' ? 'V' + (f.mode === 'trunk' ? 1 : f.vlan) : null; }
+  if (ifn.startsWith('Vlan')) return 'V' + ifn.slice(4);
+  return null;
+}
+const ip2n = ip => ip.split('.').reduce((a, b) => (a * 256) + (+b), 0);
+const validIp = ip => /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.test(ip) && ip.split('.').every(x => +x <= 255);
+const validMask = m => { if (!validIp(m)) return false; const n = ip2n(m); if (n === 0) return false; const inv = (~n) >>> 0; return ((inv + 1) & inv) === 0; };
+const maskLen = m => ip2n(m).toString(2).replace(/0/g, '').length;
+const netOf = (ip, m) => (ip2n(ip) & ip2n(m)) >>> 0;
+const n2ip = n => [24, 16, 8, 0].map(s => (n >>> s) & 255).join('.');
+function doPing(i, dev, target) {
+  if (!validIp(target)) return '% Unrecognized host or address, or protocol not running.';
+  const s = getDev(i, dev); let ok = false, src = null;
+  for (const n of sortIfs(s.ifs)) { const f = s.ifs[n]; if (!f.ip || ifStatus(i, dev, n) !== 'up') continue; if (f.ip === target) { ok = true; break; } if (!src && netOf(f.ip, f.mask) === netOf(target, f.mask)) src = n; }
+  if (!ok && src) {
+    const seg = segOf(i, dev, src);
+    for (const d of ['R1', 'R2', 'SW1']) { if (d === dev) continue; const o = getDev(i, d); for (const n in o.ifs) { const f = o.ifs[n]; if (f.ip === target && seg && segOf(i, d, n) === seg && netOf(f.ip, f.mask) === netOf(s.ifs[src].ip, f.mask)) ok = true; } }
+  }
+  return `Type escape sequence to abort.\nSending 5, 100-byte ICMP Echos to ${target}, timeout is 2 seconds:\n` + (ok ? '!!!!!\nSuccess rate is 100 percent (5/5), round-trip min/avg/max = 1/1/3 ms' : '.....\nSuccess rate is 0 percent (0/5)');
+}
+const E = { $: 1 };
+const SHOWT = { ip: { interface: { brief: E }, route: E }, 'running-config': E, vlan: { brief: E }, version: E };
+const DO = { show: SHOWT, ping: 'A', write: { memory: E, $: 1 } };
+const TREE = {
+  user: { enable: E, show: { ip: SHOWT.ip, version: E }, ping: 'A', exit: E },
+  priv: { configure: { terminal: E, $: 1 }, show: SHOWT, ping: 'A', write: { memory: E, $: 1 }, copy: { 'running-config': { 'startup-config': E } }, disable: E, exit: E },
+  config: { hostname: 'A', interface: 'I', vlan: 'A', no: { vlan: 'A', hostname: E }, do: DO, exit: E, end: E },
+  if: { ip: { address: 'A' }, shutdown: E, no: { shutdown: E, ip: { address: E }, description: E }, description: 'A', switchport: { mode: { access: E, trunk: E }, access: { vlan: 'A' } }, interface: 'I', do: DO, exit: E, end: E },
+  vlan: { name: 'A', do: DO, exit: E, end: E },
+};
+const HELP = { enable: 'Turn on privileged commands', disable: 'Turn off privileged commands', show: 'Show running system information', ping: 'Send echo messages', exit: 'Exit from the current mode', end: 'Exit to privileged EXEC mode',
+  configure: 'Enter configuration mode', terminal: 'Configure from the terminal', write: 'Write running configuration to memory', memory: 'Write to NV memory', copy: 'Copy from one file to another', 'running-config': 'Current operating configuration',
+  'startup-config': 'Startup configuration', hostname: "Set system's network name", interface: 'Select an interface / IP interface status', vlan: 'VLAN commands', no: 'Negate a command or set its defaults', do: 'Run an exec command in config mode',
+  ip: 'Internet Protocol commands', address: 'Set the IP address of an interface', shutdown: 'Shutdown the selected interface', description: 'Interface specific description', switchport: 'Set switching mode characteristics', mode: 'Set mode of the interface',
+  access: 'Set access mode characteristics', trunk: 'Set trunking mode', brief: 'Brief summary', route: 'IP routing table', version: 'System hardware and software status', name: 'Ascii name of the VLAN' };
+const ARGHELP = { hostname: "WORD  This system's network name", ping: 'A.B.C.D  Ping destination address', address: 'A.B.C.D  IP address   A.B.C.D  IP subnet mask', vlan: '<1-4094>  VLAN ID', description: 'LINE  Up to 240 characters describing this interface', name: 'WORD  The ascii name for the VLAN' };
+const avail = (k, type) => (k === 'vlan' || k === 'switchport') ? type === 'sw' : k === 'route' ? type === 'r' : true;
+function resolve(tokens, mode, type) {
+  let node = TREE[mode]; const canon = [];
+  for (let k = 0; k < tokens.length; k++) {
+    if (typeof node === 'string') return { canon, args: tokens.slice(k), node };
+    const tk = tokens[k].toLowerCase(), keys = Object.keys(node).filter(x => x !== '$' && avail(x, type));
+    const m = keys.includes(tk) ? [tk] : keys.filter(x => x.startsWith(tk));
+    if (!m.length) return { err: 'invalid', k, canon };
+    if (m.length > 1) return { err: 'ambiguous', k, canon };
+    canon.push(m[0]); node = node[m[0]];
+  }
+  return { canon, args: [], node };
+}
+function parseIf(str, s) {
+  const m = /^([a-z]+)([\d/]+)$/i.exec(str.replace(/\s+/g, ''));
+  if (!m) return null;
+  const fams = s.type === 'sw' ? ['fastethernet', 'gigabitethernet', 'vlan'] : ['gigabitethernet'];
+  const f = fams.filter(x => x.startsWith(m[1].toLowerCase()));
+  if (f.length !== 1) return null;
+  return { fastethernet: 'FastEthernet', gigabitethernet: 'GigabitEthernet', vlan: 'Vlan' }[f[0]] + m[2];
+}
+const PROMPT_SUFFIX = { user: '>', priv: '#', config: '(config)#', if: '(config-if)#', vlan: '(config-vlan)#' };
+const promptOf = (i, dev) => getDev(i, dev).hostname + PROMPT_SUFFIX[RT(i, dev).mode];
+function runningConfig(s) {
+  const L = ['!', `hostname ${s.hostname}`, '!'];
+  for (const n of sortIfs(s.ifs)) {
+    const f = s.ifs[n]; L.push(`interface ${n}`);
+    if (f.desc) L.push(` description ${f.desc}`);
+    if (s.type === 'sw' && !n.startsWith('Vlan')) { if (f.vlan !== 1) L.push(` switchport access vlan ${f.vlan}`); if (f.mode) L.push(` switchport mode ${f.mode}`); }
+    if (s.type === 'r' || n.startsWith('Vlan')) L.push(f.ip ? ` ip address ${f.ip} ${f.mask}` : ' no ip address');
+    if (f.shut) L.push(' shutdown');
+    L.push('!');
+  }
+  L.push('line con 0', 'line vty 0 4', ' login', '!', 'end');
+  const body = L.join('\n');
+  return `Building configuration...\n\nCurrent configuration : ${body.length + 40} bytes\n${body}`;
+}
+function ipBrief(i, dev) {
+  const s = getDev(i, dev), pad = (x, n) => String(x).padEnd(n);
+  const out = [pad('Interface', 27) + pad('IP-Address', 16) + pad('OK?', 4) + pad('Method', 7) + pad('Status', 22) + 'Protocol'];
+  for (const n of sortIfs(s.ifs)) { const f = s.ifs[n], st = ifStatus(i, dev, n); out.push(pad(n, 27) + pad(f.ip || 'unassigned', 16) + pad('YES', 4) + pad(f.ip ? 'manual' : 'unset', 7) + pad(st === 'admin' ? 'administratively down' : st, 22) + (st === 'up' ? 'up' : 'down')); }
+  return out.join('\n');
+}
+function vlanBrief(s) {
+  const pad = (x, n) => String(x).padEnd(n), out = [pad('VLAN', 5) + pad('Name', 33) + pad('Status', 10) + 'Ports', '---- -------------------------------- --------- -------------------------------'];
+  Object.keys(s.vlans).map(Number).sort((a, b) => a - b).forEach(v => {
+    const ports = sortIfs(s.ifs).filter(n => !n.startsWith('Vlan') && s.ifs[n].vlan === v && s.ifs[n].mode !== 'trunk').map(shortIf);
+    const rows = []; for (let k = 0; k < Math.max(1, ports.length); k += 4) rows.push(ports.slice(k, k + 4).join(', '));
+    rows.forEach((r, k) => out.push(k ? ' '.repeat(48) + r : pad(v, 5) + pad(s.vlans[v], 33) + pad('active', 10) + r));
+  });
+  return out.join('\n');
+}
+function ipRoute(i, dev) {
+  const s = getDev(i, dev), out = ['Codes: L - local, C - connected, S - static, R - RIP, O - OSPF', '', 'Gateway of last resort is not set', ''];
+  let any = false;
+  for (const n of sortIfs(s.ifs)) { const f = s.ifs[n]; if (!f.ip || ifStatus(i, dev, n) !== 'up') continue; any = true;
+    out.push(`C        ${n2ip(netOf(f.ip, f.mask))}/${maskLen(f.mask)} is directly connected, ${n}`, `L        ${f.ip}/32 is directly connected, ${n}`); }
+  if (!any) out.push('(no connected routes — configure an IP address and "no shutdown")');
+  return out.join('\n');
+}
+function linkMsgs(i, dev, n) {
+  const st = ifStatus(i, dev, n);
+  if (st === 'admin') return `%LINK-5-CHANGED: Interface ${n}, changed state to administratively down`;
+  return `%LINK-5-CHANGED: Interface ${n}, changed state to ${st}\n%LINEPROTO-5-UPDOWN: Line protocol on Interface ${n}, changed state to ${st}`;
+}
+function run(i, dev, canon, args) {
+  const s = getDev(i, dev), rt = RT(i, dev), c = canon.join(' '), cur = rt.cur && s.ifs[rt.cur];
+  switch (c) {
+    case 'enable': rt.mode = 'priv'; return '';
+    case 'disable': rt.mode = 'user'; return '';
+    case 'exit': rt.mode = { user: 'user', priv: 'user', config: 'priv', if: 'config', vlan: 'config' }[rt.mode]; rt.cur = null; return '';
+    case 'end': rt.mode = 'priv'; rt.cur = null; return '%SYS-5-CONFIG_I: Configured from console by console';
+    case 'configure': case 'configure terminal': rt.mode = 'config'; return 'Enter configuration commands, one per line.  End with CNTL/Z.';
+    case 'hostname': if (!/^[A-Za-z][\w-]{0,62}$/.test(args[0] || '')) return '% Invalid hostname'; s.hostname = args[0]; return '';
+    case 'no hostname': s.hostname = dev; return '';
+    case 'interface': {
+      const n = parseIf(args.join(''), s);
+      if (!n) return '% Invalid input detected at \'^\' marker.';
+      if (!s.ifs[n]) { if (n.startsWith('Vlan') && +n.slice(4) >= 1 && +n.slice(4) <= 4094) s.ifs[n] = { ip: null, mask: null, shut: false, desc: '', vlan: 1, mode: null }; else return '% Invalid interface ' + n; }
+      rt.mode = 'if'; rt.cur = n; return '';
+    }
+    case 'ip address':
+      if (!cur) return '% Invalid input';
+      if (s.type === 'sw' && !rt.cur.startsWith('Vlan')) return '% IP addresses may not be configured on L2 links.';
+      if (!validIp(args[0] || '') || !validMask(args[1] || '')) return args.length < 2 ? '% Incomplete command.' : '% Invalid IP address or mask';
+      cur.ip = args[0]; cur.mask = args[1]; return '';
+    case 'no ip address': if (cur) { cur.ip = null; cur.mask = null; } return '';
+    case 'shutdown': if (!cur) return ''; cur.shut = true; return linkMsgs(i, dev, rt.cur);
+    case 'no shutdown': if (!cur) return ''; if (!cur.shut) return ''; cur.shut = false; return linkMsgs(i, dev, rt.cur);
+    case 'description': if (cur) cur.desc = args.join(' ').slice(0, 240); return '';
+    case 'no description': if (cur) cur.desc = ''; return '';
+    case 'switchport mode access': case 'switchport mode trunk':
+      if (rt.cur.startsWith('Vlan')) return '% Invalid input detected at \'^\' marker.'; cur.mode = canon[2]; return '';
+    case 'switchport access vlan': {
+      if (rt.cur.startsWith('Vlan')) return '% Invalid input detected at \'^\' marker.';
+      const v = +args[0]; if (!(v >= 1 && v <= 4094)) return '% Invalid VLAN ID';
+      let msg = ''; if (!s.vlans[v]) { s.vlans[v] = 'VLAN' + String(v).padStart(4, '0'); msg = `% Access VLAN does not exist. Creating vlan ${v}`; }
+      cur.vlan = v; return msg;
+    }
+    case 'vlan': { const v = +args[0]; if (!(v >= 1 && v <= 4094)) return '% Invalid VLAN ID'; if (!s.vlans[v]) s.vlans[v] = 'VLAN' + String(v).padStart(4, '0'); rt.mode = 'vlan'; rt.curVlan = v; return ''; }
+    case 'no vlan': { const v = +args[0]; if (v === 1) return '%Default VLAN 1 may not be deleted.'; delete s.vlans[v]; return ''; }
+    case 'name': if (rt.curVlan) s.vlans[rt.curVlan] = (args[0] || '').slice(0, 32); return '';
+    case 'show ip interface brief': return ipBrief(i, dev);
+    case 'show running-config': return runningConfig(s);
+    case 'show vlan brief': return vlanBrief(s);
+    case 'show ip route': return ipRoute(i, dev);
+    case 'show version': return `Cisco IOS Software — SIMULATED training CLI (ABAD Networks Lab)\nThis is NOT a real Cisco device; output is simplified for learning.\n\n${s.hostname} uptime is ${Math.max(1, Math.round((Date.now() - rt.boot) / 60000))} minute(s)\n${Object.keys(s.ifs).filter(n => n.startsWith('Gig')).length} Gigabit Ethernet interface(s)` + (s.type === 'sw' ? `\n${Object.keys(s.ifs).filter(n => n.startsWith('Fast')).length} FastEthernet interface(s)` : '');
+    case 'ping': return doPing(i, dev, args[0] || '');
+    case 'write': case 'write memory': return 'Building configuration...\n[OK]';
+    case 'copy running-config startup-config': return 'Destination filename [startup-config]?\nBuilding configuration...\n[OK]';
+  }
+  return '% Invalid input detected at \'^\' marker.';
+}
+function helpFor(i, dev, raw) {
+  const s = getDev(i, dev), rt = RT(i, dev), body = raw.slice(0, -1), endsSpace = body === '' || /\s$/.test(body);
+  const toks = body.trim().split(/\s+/).filter(Boolean), prefix = endsSpace ? '' : (toks.pop() || '').toLowerCase();
+  const r = resolve(toks, rt.mode, s.type);
+  if (r.err) return '% Unrecognized command';
+  const node = r.node;
+  if (node === 'I') return s.type === 'sw' ? '  FastEthernet     FastEthernet IEEE 802.3\n  GigabitEthernet  GigabitEthernet IEEE 802.3z\n  Vlan             Catalyst Vlans' : '  GigabitEthernet  GigabitEthernet IEEE 802.3z';
+  if (node === 'A') return '  ' + (ARGHELP[r.canon[r.canon.length - 1]] || 'WORD');
+  const keys = Object.keys(node).filter(k => k !== '$' && avail(k, s.type) && k.startsWith(prefix));
+  const lines = keys.map(k => '  ' + k.padEnd(18) + (HELP[k] || ''));
+  if (node.$ && endsSpace) lines.push('  <cr>');
+  return lines.join('\n') || '% Unrecognized command';
+}
+function complete(i, dev, input) {
+  const s = getDev(i, dev), rt = RT(i, dev);
+  if (!input.trim() || /\s$/.test(input)) return { input };
+  const toks = input.trim().split(/\s+/), last = toks.pop(), r = resolve(toks, rt.mode, s.type);
+  if (r.err) return { input };
+  const head = input.slice(0, input.length - last.length);
+  if (r.node === 'I' || (typeof r.node === 'string' && r.canon[r.canon.length - 1] === 'interface')) {
+    const n = parseIf(last, s); if (n) return { input: head + n };
+    const fams = (s.type === 'sw' ? ['FastEthernet', 'GigabitEthernet', 'Vlan'] : ['GigabitEthernet']).filter(f => f.toLowerCase().startsWith(last.toLowerCase()));
+    return fams.length === 1 ? { input: head + fams[0] } : { input, list: fams };
+  }
+  if (typeof r.node !== 'object') return { input };
+  const keys = Object.keys(r.node).filter(k => k !== '$' && avail(k, s.type) && k.startsWith(last.toLowerCase()));
+  if (keys.length === 1) return { input: head + keys[0] + ' ' };
+  if (keys.length > 1) { let cp = keys[0]; keys.forEach(k => { while (!k.startsWith(cp)) cp = cp.slice(0, -1); }); return { input: head + (cp.length > last.length ? cp : last), list: keys }; }
+  return { input };
+}
+function execLine(i, dev, raw) {
+  const s = getDev(i, dev), rt = RT(i, dev), line = raw.trim();
+  if (!line) return { out: '' };
+  if (line.endsWith('?')) return { out: helpFor(i, dev, raw.replace(/\s+$/, '')), keep: raw.replace(/\?\s*$/, '') };
+  const toks = line.split(/\s+/), r = resolve(toks, rt.mode, s.type);
+  if (r.err === 'invalid') { const pos = line.indexOf(toks[r.k], toks.slice(0, r.k).join(' ').length); return { out: ' '.repeat(promptOf(i, dev).length + pos) + '^\n% Invalid input detected at \'^\' marker.' }; }
+  if (r.err === 'ambiguous') return { out: `% Ambiguous command:  "${line}"` };
+  if ((typeof r.node === 'object' && !r.node.$) || ((r.node === 'A' || r.node === 'I') && !r.args.length)) return { out: '% Incomplete command.' };
+  let canon = r.canon;
+  if (canon[0] === 'do') canon = canon.slice(1);
+  const out = run(i, dev, canon, r.args);
+  saveSim();
+  return { out };
+}
+
+// ================= device panel UI =================
+const $ = (q) => document.querySelector(q);
+const dp = $('#dp'), termOut = $('#termOut'), termIn = $('#termIn'), termPrompt = $('#termPrompt');
+let curDev = null; // {i, dev}
+const DEV_NAMES = { R1: 'Router 1', R2: 'Router 2', SW1: 'Switch' };
+function devView(i, dev) {
+  const m = cabinetObjs[i].userData.devs[dev], p = m.getWorldPosition(new V3()), wall = RACKS[i].wall;
+  const n = wall === 'L' ? new V3(1, 0, 0) : new V3(0, 0, 1), left = wall === 'L' ? new V3(0, 0, 1) : new V3(-1, 0, 0);
+  const t = p.clone(); let d = 0.95;
+  if (isMobile) { t.y -= 0.2; d = 1.35; } else t.addScaledVector(left, 0.2);
+  const c = t.clone().addScaledVector(n, d); c.y += 0.06;
+  return { p: c.toArray(), t: t.toArray() };
+}
+function stBadge(st) { return `<span class="st ${st}">${st === 'admin' ? 'admin down' : st}</span>`; }
+function topoSVG(i, dev) {
+  const pcs = assign[i].length, W_ = 440, Hh = 250;
+  const pos = { R1: [110, 46], R2: [330, 46], SW1: [220, 132] };
+  const lk = (a, ai, b, bi) => { const st = ifStatus(i, a, ai) === 'up' && ifStatus(i, b, bi) === 'up'; return st ? '#3ee08f' : '#ff6b6b'; };
+  const line = (p, q, col, l1, l2) => `<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="${col}" stroke-width="3" stroke-dasharray="${col === '#ff6b6b' ? '6 5' : '0'}"/>` +
+    `<text x="${p[0] + (q[0] - p[0]) * .22}" y="${p[1] + (q[1] - p[1]) * .22 - 5}" fill="#9fb6c8" font-size="10" text-anchor="middle">${l1}</text>` +
+    `<text x="${p[0] + (q[0] - p[0]) * .78}" y="${p[1] + (q[1] - p[1]) * .78 - 5}" fill="#9fb6c8" font-size="10" text-anchor="middle">${l2}</text>`;
+  let svg = `<svg class="topo" viewBox="0 0 ${W_} ${Hh}" xmlns="http://www.w3.org/2000/svg" direction="ltr">`;
+  svg += line(pos.R1, pos.R2, lk('R1', 'GigabitEthernet0/0', 'R2', 'GigabitEthernet0/0'), 'Gi0/0', 'Gi0/0');
+  svg += line(pos.R1, pos.SW1, lk('R1', 'GigabitEthernet0/1', 'SW1', 'GigabitEthernet0/1'), 'Gi0/1', 'Gi0/1');
+  svg += line(pos.R2, pos.SW1, lk('R2', 'GigabitEthernet0/1', 'SW1', 'GigabitEthernet0/2'), 'Gi0/1', 'Gi0/2');
+  for (let k = 0; k < pcs; k++) {
+    const x = pcs === 1 ? 220 : 70 + k * (300 / (pcs - 1)), q = [x, 212];
+    const col = ifStatus(i, 'SW1', `FastEthernet0/${k + 1}`) === 'up' ? '#3ee08f' : '#ff6b6b';
+    svg += `<line x1="220" y1="132" x2="${x}" y2="212" stroke="${col}" stroke-width="2" opacity=".85"/><text x="${(220 + x) / 2 + (x < 220 ? -14 : 14)}" y="178" fill="#9fb6c8" font-size="10" text-anchor="middle">Fa0/${k + 1}</text>`;
+    svg += `<g><rect x="${x - 26}" y="200" width="52" height="30" rx="6" fill="#123" stroke="#7fe0ff"/><text x="${x}" y="220" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">PC${k + 1}</text></g>`;
+  }
+  for (const d of ['R1', 'R2', 'SW1']) {
+    const [x, y] = pos[d], on = d === dev, s = getDev(i, d);
+    svg += `<g class="nd" data-dev="${d}"><rect x="${x - 46}" y="${y - 20}" width="92" height="40" rx="9" fill="${on ? '#F5BD2D' : '#5f7583'}" stroke="${on ? '#fff' : '#9fb6c8'}" stroke-width="1.5"/>` +
+      `<text x="${x}" y="${y - 2}" fill="${on ? '#2a1d00' : '#fff'}" font-size="13" font-weight="800" text-anchor="middle">${s.hostname.slice(0, 11)}</text>` +
+      `<text x="${x}" y="${y + 13}" fill="${on ? '#2a1d00' : '#dce8f2'}" font-size="9.5" text-anchor="middle">${d === 'SW1' ? 'Cisco Switch' : 'Cisco Router'}</text></g>`;
+  }
+  return svg + '</svg>';
+}
+function renderInfo() {
+  if (!curDev) return;
+  const { i, dev } = curDev, s = getDev(i, dev), isSw = dev === 'SW1';
+  $('#dpKick').textContent = `Rack ${i + 1} · جهاز Cisco`;
+  $('#dpTitle').innerHTML = `<span class="en">${dev}</span> — <span class="en">${DEV_NAMES[dev]} (Cisco)</span>` + (s.hostname !== dev ? ` <small style="color:#9fb6c8;font-size:13px"><bdi dir="ltr">hostname: ${s.hostname}</bdi></small>` : '');
+  const role = isSw ? 'سويتش Cisco — جهاز تبديل في الطبقة الثانية يربط محطات المتدربين ببعضها داخل الشبكة المحلية ويدعم الشبكات الافتراضية VLAN، ويتصل بالراوترين R1 و R2.'
+    : `راوتر Cisco — جهاز توجيه في الطبقة الثالثة يربط بين الشبكات ويختار مسار الحزم. في هذه الخزانة يتصل بالراوتر ${dev === 'R1' ? 'R2' : 'R1'} مباشرة وبالسويتش SW1.`;
+  let rows = [];
+  const row = (n, to) => `<tr><td class="en">${n}</td><td>${to}</td><td>${n === 'Console' ? '<span class="st admin">console</span>' : stBadge(ifStatus(i, dev, n))}</td><td class="en">${n !== 'Console' && s.ifs[n] && s.ifs[n].ip ? s.ifs[n].ip : '—'}</td></tr>`;
+  if (isSw) {
+    rows.push(row('GigabitEthernet0/1', 'R1 · Gi0/1'), row('GigabitEthernet0/2', 'R2 · Gi0/1'));
+    assign[i].forEach((_, k) => rows.push(row(`FastEthernet0/${k + 1}`, `PC${k + 1}`)));
+    rows.push(`<tr><td class="en">Fa0/${assign[i].length + 1}–0/24</td><td colspan="3" style="color:#8fa6ba">غير مستخدمة</td></tr>`, row('Vlan1', 'واجهة الإدارة (SVI)'));
+  } else {
+    const o = dev === 'R1' ? 'R2' : 'R1';
+    rows.push(row('GigabitEthernet0/0', `${o} · Gi0/0`), row('GigabitEthernet0/1', `SW1 · ${dev === 'R1' ? 'Gi0/1' : 'Gi0/2'}`), row('GigabitEthernet0/2', '<span style="color:#8fa6ba">غير مستخدم</span>'), row('Console', 'كابل الكونسول للإعداد'));
+  }
+  $('#dpInfo').innerHTML = `<p>${role}</p><h3>المنافذ</h3><table class="ports"><thead><tr><th>المنفذ</th><th>متصل بـ</th><th>الحالة</th><th>IP</th></tr></thead><tbody>${rows.join('')}</tbody></table>
+    <h3>مخطط الخزانة <span class="en">Rack ${i + 1}</span></h3>${topoSVG(i, dev)}
+    <div class="simnote">أسماء المنافذ والتوصيلات افتراضية لأغراض التدريب والمحاكاة، وقد تختلف حسب طراز الجهاز الفعلي. الحالة تتبع إعداداتك في الطرفية.</div>`;
+  $('#dpInfo').querySelectorAll('.nd').forEach(n => n.addEventListener('click', () => openDevice(i, n.dataset.dev)));
+}
+function termRender() {
+  const rt = RT(curDev.i, curDev.dev);
+  termOut.textContent = rt.log.join('\n'); termPrompt.textContent = promptOf(curDev.i, curDev.dev);
+  const t = $('#term'); t.scrollTop = t.scrollHeight;
+}
+function termInit() {
+  const { i, dev } = curDev, rt = RT(i, dev);
+  if (!rt.log) rt.log = [`*** ABAD Networks Lab — Rack ${i + 1} ${dev} (Cisco) ***`, '*** محاكاة تعليمية / SIMULATION — not a real device ***', 'Type "?" for help, TAB to complete, ↑/↓ for history.', '', 'Press RETURN to get started.', ''];
+  const chips = ['?', 'enable', 'conf t', dev === 'SW1' ? 'int vlan 1' : 'int g0/0', 'no shut', 'end', 'sh ip int br', 'sh run'].concat(dev === 'SW1' ? ['sh vlan br'] : ['sh ip route']);
+  $('#chips').innerHTML = chips.map(c => `<button data-c="${c}">${c}</button>`).join('') + '<button data-tab="1">⇥ Tab</button><button class="rst" data-reset="1">إعادة ضبط الجهاز</button>';
+  termRender();
+}
+function submit(line) {
+  const { i, dev } = curDev, rt = RT(i, dev);
+  rt.log.push(promptOf(i, dev) + line);
+  if (line.trim()) { rt.hist.push(line); rt.hi = rt.hist.length; }
+  const r = execLine(i, dev, line);
+  if (r.out) rt.log.push(r.out);
+  termIn.value = r.keep || '';
+  termRender(); renderInfo();
+}
+termIn.addEventListener('keydown', e => {
+  if (!curDev) return; const rt = RT(curDev.i, curDev.dev);
+  if (e.key === 'Enter') { e.preventDefault(); submit(termIn.value); }
+  else if (e.key === 'Tab') { e.preventDefault(); doTab(); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); if (rt.hi > 0) termIn.value = rt.hist[--rt.hi]; }
+  else if (e.key === 'ArrowDown') { e.preventDefault(); if (rt.hi < rt.hist.length - 1) termIn.value = rt.hist[++rt.hi]; else { rt.hi = rt.hist.length; termIn.value = ''; } }
+  else if (e.key === '?') { e.preventDefault(); submit(termIn.value + '?'); }
+  else if (e.key === 'z' && e.ctrlKey) { e.preventDefault(); submit('end'); }
+});
+function doTab() {
+  const { i, dev } = curDev, rt = RT(i, dev), r = complete(i, dev, termIn.value);
+  if (r.list && r.list.length > 1) { rt.log.push(promptOf(i, dev) + termIn.value, r.list.join('  ')); termRender(); }
+  termIn.value = r.input; termIn.focus();
+}
+$('#term').addEventListener('click', () => termIn.focus());
+$('#chips').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || !curDev) return;
+  if (b.dataset.tab) return doTab();
+  if (b.dataset.reset) { delete simStore[`${curDev.i}-${curDev.dev}`]; delete RTS[`${curDev.i}-${curDev.dev}`]; saveSim(); termInit(); renderInfo(); return; }
+  submit(b.dataset.c);
+});
+document.querySelectorAll('.dp-tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
+function setTab(t) {
+  document.querySelectorAll('.dp-tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
+  $('#dpInfo').hidden = t !== 'info'; $('#dpTerm').hidden = t !== 'term';
+  if (t === 'term') { termInit(); if (!isMobile) termIn.focus(); }
+}
+function devHighlight(i, dev) {
+  cabinetObjs.forEach(g => Object.values(g.userData.devs).forEach(m => m.userData.edge.visible = false));
+  if (dev) cabinetObjs[i].userData.devs[dev].userData.edge.visible = true;
+}
+function openDevice(i, dev, tab) {
+  const same = curDev && curDev.i === i;
+  if (!same || selected?.type !== 'rack' || selected.i !== i) selectRack(i, false, true);
+  curDev = { i, dev }; devHighlight(i, dev);
+  document.body.classList.add('dp-open'); dp.classList.add('show');
+  renderInfo(); setTab(tab || (document.querySelector('.dp-tabs button.on')?.dataset.tab) || 'info');
+  flyTo(devView(i, dev), 1500);
+}
+function closeDevice() { curDev = null; devHighlight(); dp.classList.remove('show'); document.body.classList.remove('dp-open'); }
+$('#dpX').onclick = () => { const i = curDev?.i; closeDevice(); if (i !== undefined) selectRack(i); };
+
+// ================= guided tour =================
+const tourBtn = document.getElementById('tourBtn'), tourBar = $('#tourBar'), tourProg = $('#tourProg');
+const STEP_MS = 5600;
+const TOUR = [
+  { cap: 'نظرة عامة — المعمل من زاوية الصورة', go: () => selectSpot('overview') },
+  ...RACKS.map((_, i) => ({ cap: `Rack ${i + 1} — راوتران وسويتش Cisco، وخطوط التوصيل إلى ${assign[i].length} محطات`, go: () => selectRack(i) })),
+  { cap: 'اقتراب من الراوتر R1 في Rack 1 — اضغط عليه لفتح الطرفية', go: () => openDevice(0, 'R1', 'info') },
+  { cap: 'طاولة الأدوات — كرّامات وقشّارات وأجهزة فحص الكابلات', go: () => selectSpot('tools') },
+  { cap: 'خزانة الخوادم بالباب الزجاجي والإضاءة الزرقاء', go: () => selectSpot('server') },
+  { cap: 'محطات العمل على الجدارين الأيسر والخلفي', go: () => selectSpot('wsLeft') },
+  { cap: 'الصف الأيمن من المحطات', go: () => selectSpot('wsRight') },
+  { cap: 'نهاية الجولة — ملخص المعمل', go: () => { selectSpot('overview'); openModal(); } },
+];
+let tourTimer = null, tourIdx = -1, tourOn = false;
+function tourGo(k) {
+  clearTimeout(tourTimer); tourIdx = Math.max(0, Math.min(TOUR.length - 1, k));
+  const st = TOUR[tourIdx]; st.go(); if (fly) fly.d = 2300;
+  $('#tourCap').textContent = st.cap; $('#tourN').textContent = `${tourIdx + 1}/${TOUR.length}`;
+  tourProg.style.transition = 'none'; tourProg.style.width = (tourIdx / TOUR.length * 100) + '%';
+  requestAnimationFrame(() => { tourProg.style.transition = `width ${STEP_MS}ms linear`; tourProg.style.width = ((tourIdx + 1) / TOUR.length * 100) + '%'; });
+  if (tourIdx < TOUR.length - 1) tourTimer = setTimeout(() => tourGo(tourIdx + 1), STEP_MS); else tourTimer = setTimeout(stopTour, STEP_MS);
+}
+function startTour() { tourOn = true; closeModal(); tourBar.classList.add('show'); tourBtn.classList.add('on'); tourBtn.textContent = '■ إيقاف'; tourGo(0); }
+function stopTour() { if (!tourOn) return; tourOn = false; clearTimeout(tourTimer); tourTimer = null; tourBar.classList.remove('show'); tourBtn.classList.remove('on'); tourBtn.textContent = '▶ جولة'; }
+tourBtn.onclick = () => tourOn ? stopTour() : startTour();
+$('#tourNext').onclick = () => tourGo(tourIdx + 1); $('#tourPrev').onclick = () => tourGo(tourIdx - 1); $('#tourStop').onclick = stopTour;
+
+// ================= lab overview modal =================
+const modal = $('#modal');
+$('#mWs').textContent = ws.length;
+$('#mRows').innerHTML = RACKS.map((_, i) => `<tr class="rk" data-i="${i}"><td class="en" style="font-weight:800">Rack ${i + 1}</td><td>Router 1 · Router 2 · Switch <span style="color:#8fa6ba">(Cisco)</span></td><td>${assign[i].length}</td></tr>`).join('')
+  + `<tr class="rk" data-s="server"><td class="en" style="font-weight:800">Server Rack</td><td style="color:#ffd76e">محتوى مثال — يُعدَّل</td><td>—</td></tr>`;
+$('#mRows').addEventListener('click', e => { const tr = e.target.closest('tr'); if (!tr) return; closeModal(); stopTour(); tr.dataset.s ? selectSpot('server') : selectRack(+tr.dataset.i); });
+function openModal() { modal.classList.add('show'); }
+function closeModal() { modal.classList.remove('show'); }
+$('#modalX').onclick = closeModal; modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+$('#aboutBtn').onclick = () => { stopTour(); openModal(); };
+addEventListener('keydown', e => { if (e.key === 'Escape') { if (modal.classList.contains('show')) closeModal(); else if (curDev) $('#dpX').click(); } });
 
 // ---------------- resize / loop ----------------
 function resize() {
   renderer.setSize(innerWidth, innerHeight, false);
   camera.aspect = innerWidth / innerHeight;
-  camera.fov = camera.aspect < 0.8 ? 80 : 74;
+  camera.fov = camera.aspect < 0.8 ? 80 : 78;
   camera.updateProjectionMatrix();
 }
 addEventListener('resize', resize); resize();
@@ -680,7 +1243,8 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const clock = new THREE.Clock();
 function loop() {
   requestAnimationFrame(loop);
-  const t = clock.getElapsedTime();
+  const t = clock.getElapsedTime(), dt = Math.min(0.05, t - (loop.lt ?? t)); loop.lt = t;
+  updateLinks(dt);
   if (fly) {
     const k = Math.min(1, (performance.now() - fly.s) / fly.d), e = ease(k);
     camera.position.lerpVectors(fly.p0, fly.p1, e); controls.target.lerpVectors(fly.t0, fly.t1, e);
@@ -700,6 +1264,7 @@ document.getElementById('loading').classList.add('done');
 const startRack = params.has('rack') ? clamp(parseInt(params.get('rack')) - 1, 0, 6) : 0;
 if (params.get('view') === 'overview') { selectRack(startRack, false); card.classList.remove('show'); }
 else if (params.get('spot') && V[params.get('spot')]) { const s = params.get('spot'); clearHighlight(); fly = null; selectSpot(s); fly && (fly.d = 1); }
+else if (params.get('dev')) { const [ri, dn] = params.get('dev').split('-'); openDevice(clamp(+ri - 1, 0, 6), ['R1', 'R2', 'SW1'].includes(dn) ? dn : 'R1', params.get('tab') || 'info'); fly.d = 1; }
 else if (params.has('rack')) { selectRack(startRack, true); fly.d = 1; }
 else { selectRack(startRack, false); setTimeout(() => { if (!tourTimer && !fly) flyTo(rackView(startRack), 2000); }, 1800); }
 window.__ready = true;
